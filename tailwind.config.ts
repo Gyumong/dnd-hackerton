@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss"
+import { colors } from '@/shared/styles/color';
 
 const config = {
   darkMode: ["class"],
@@ -16,9 +17,17 @@ const config = {
       screens: {
         "2xl": "1400px",
       },
+
     },
     extend: {
       colors: {
+        dndBlack01: '#202020',
+        dndBlue01: '#6687FC',
+        dndMint01:'#7AD7CB',
+        dndYellow01:'#FEEFC7',
+        dndOrange01:'#FC9366',
+        dndOrange02:'#FC6C3E',
+        dndPink01:'#FB8484',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -1,6 +1,6 @@
 import ky, { Options, ResponsePromise } from 'ky';
 
-const BASE_API_URL = process.env.NEXT_PUBLIC_SERVER_BASE_URL;
+const BASE_API_URL = "https://c0f9-49-172-224-25.ngrok-free.app/";
 
 export const instance = ky.create({
     prefixUrl: BASE_API_URL,
