@@ -1,5 +1,7 @@
+import Transportation from '@/app/request-form/components/steps/Transportation';
+
 export const Steps = {
-  CREATE_USER_NICKNAME: 0,
-  SET_WEIGHT_HEIGHT: 1,
-  SELECT_USER_GENDER_AGE_RANGE: 2,
+  SEARCH_DISTANCE: 0,
+  DISTANCE_RESULT: 1,
+  TRANSPORTATION: 2,
 } as const;
