@@ -20,6 +20,12 @@ const config = {
 
     },
     extend: {
+      lineHeight: {
+        custom: '1.6', // 160%
+      },
+      letterSpacing: {
+        tighter1: '-0.02em', // 대략 -2%
+      },
       colors: {
         dndBlack01: '#202020',
         dndBlue01: '#6687FC',
