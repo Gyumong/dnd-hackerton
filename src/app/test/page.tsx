@@ -1,7 +1,7 @@
-import MessageBanner from '@/components/ui/MessageBanner';
+import FinishResultPage from '@/components/ui/FinishResultPage';
 
 const page = () => {
-  return <MessageBanner />;
+  return <FinishResultPage />;
 };
 
 export default page;
