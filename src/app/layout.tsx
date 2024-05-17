@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="mx-auto max-w-[480px] bg-black">
+      <body className="mx-auto max-w-[375px] bg-black">
         <QueryClientProvider>{children}</QueryClientProvider>
       </body>
     </html>
