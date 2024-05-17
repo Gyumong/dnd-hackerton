@@ -1,7 +1,7 @@
-import FinishResultPage from '@/components/ui/FinishResultPage';
+import AddGachaLoadingPage from '@/components/ui/AddGachaLoadingPage';
 
 const page = () => {
-  return <FinishResultPage />;
+  return <AddGachaLoadingPage />;
 };
 
 export default page;
