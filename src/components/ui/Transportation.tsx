@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 interface PropsType {
-  transportation: '버스' | '지하철' | '시외버스';
+  transportation: '시내버스' | '지하철' | '시외버스';
 }
 
 const Transportation = (props: PropsType) => {
@@ -14,7 +14,7 @@ const Transportation = (props: PropsType) => {
 
   useEffect(() => {
     const iconSrc =
-      transportation === '버스'
+      transportation === '시내버스'
         ? '/icons/bus.svg'
         : transportation === '지하철'
           ? '/icons/subway.svg'
