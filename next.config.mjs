@@ -26,6 +26,14 @@ const nextConfig = {
       fileLoaderRule.exclude = /\.svg$/i
       return config
     },
+  async rewrites() {
+    return [
+      {
+        source: "/:path*",
+        destination: "https://naveropenapi.apigw.ntruss.com/:path*",
+      },
+    ];
+  }
 };
 
 export default nextConfig;

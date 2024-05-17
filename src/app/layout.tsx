@@ -2,6 +2,7 @@ import { QueryClientProvider } from '@/shared/apis/queryClientProvider';
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { DndBodyFont } from '@/app/fonts';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -23,6 +24,14 @@ export default function RootLayout({
   return (
     <html lang="ko" className={DndBodyFont.className}>
       <body className="mx-auto h-dvh max-w-[375px] bg-black" >
+      <Script
+        src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}`}
+        strategy="beforeInteractive"
+      />
+      <Script
+        type="text/javascript"
+        src={`openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}&submodules=geocoder`}
+      ></Script>
         <QueryClientProvider>{children}</QueryClientProvider>
       </body>
     </html>
