@@ -1,27 +1,33 @@
 import localFont from 'next/font/local';
 
-export const ExampleFont = localFont({
-    variable: '--font-habit',
+export const DndBodyFont = localFont({
+    variable: '--font-dnd',
     src: [
-        // {
-        //     path: './SpoqaHanSansNeo-Bold.otf',
-        //     weight: '900',
-        //     style: 'normal',
-        // },
-        // {
-        //     path: './SpoqaHanSansNeo-Medium.otf',
-        //     weight: '500',
-        //     style: 'normal',
-        // },
-        // {
-        //     path: './SpoqaHanSansNeo-Regular.otf',
-        //     weight: '400',
-        //     style: 'normal',
-        // },
-        // {
-        //     path: './SpoqaHanSansNeo-Light.otf',
-        //     weight: '300',
-        //     style: 'normal',
-        // },
+        {
+            path: './Pretendard-Bold.woff2',
+            weight: '900',
+            style: 'normal',
+        },
+        {
+            path: './Pretendard-Regular.woff2',
+            weight: '400',
+            style: 'normal',
+        },
+        {
+            path: './Pretendard-Light.woff2',
+            weight: '300',
+            style: 'normal',
+        },
+    ],
+});
+
+export const DndTitleFont = localFont({
+    variable: '--font-dnd-title',
+    src: [
+        {
+            path: './rundr-Bold.woff',
+            weight: '900',
+            style: 'normal',
+        },
     ],
 });

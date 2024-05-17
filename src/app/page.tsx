@@ -1,5 +1,6 @@
 "use client"
 import AddressInput from '@/app/address-input';
+import { DndTitleFont } from '@/app/fonts';
 
 export default function Home() {
   const themeObj = {
@@ -8,6 +9,7 @@ export default function Home() {
   };
   return (
     <main className="h-dvh bg-white">
+      <h1 className={DndTitleFont.className}>타이틀</h1>
       <AddressInput/>
     </main>
   );
