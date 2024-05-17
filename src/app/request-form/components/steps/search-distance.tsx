@@ -1,13 +1,13 @@
 import { clsx } from 'clsx';
 import { DndTitleFont } from '@/app/fonts';
-import { useState } from 'react';
-import SearchIcon from '/public/icons/search.svg';
 import FixedBottomWrapper from '@/shared/@common/fixed-bottom-wrapper';
 import Button from '@/shared/@common/Button/Button';
 import AddressInput from '@/app/request-form/components/address-input';
 import EndAddressInput from '@/app/request-form/components/end-address-input';
 import { useAtom, atom } from 'jotai';
 import useGeocode from '@/shared/hooks/useGeoCode';
+import useDestinationMutation from '@/app/request-form/apis/mutations/useDestinationMuation';
+import { useCarousel } from '@/app/request-form/hooks/useCarousel';
 
 export const addressAtom = atom({
   startAddress: '',
@@ -15,15 +15,26 @@ export const addressAtom = atom({
 });
 
 const SearchDistanceStep = () => {
+  const { mutateAsync } = useDestinationMutation();
   const [address] = useAtom(addressAtom);
-
+  const { setCarouselIndexNext } = useCarousel();
   console.log('address', address);
   const startAddressResult = useGeocode(address.startAddress);
   const endAddressResult = useGeocode(address.lastAddress);
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     console.log('startAddressResult', startAddressResult.data);
     console.log('endAddressResult', endAddressResult.data);
+    const { data } = await mutateAsync({
+      startLat: startAddressResult.data?.latitude,
+      startLong: startAddressResult.data?.longitude,
+      startName: address.startAddress,
+      endLat: endAddressResult.data?.latitude,
+      endLong: endAddressResult.data?.longitude,
+      endName: address.lastAddress,
+    });
+    setCarouselIndexNext();
+    console.log('result', data);
   };
   return (
     <>

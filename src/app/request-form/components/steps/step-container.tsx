@@ -1,14 +1,13 @@
 'use client';
 import { createContext, useCallback, useEffect, useMemo, useState } from 'react';
-import { Carousel, CarouselApi, CarouselContent } from '@/commons/components/ui/carousel';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-// import CreateUserNickname from '@/app/create-user-info/components/steps/create-user-nickname';
-// import SelectUserGenderAgeRange from '@/app/create-user-info/components/steps/select-user-gender-age-range';
-// import CarouselContainer from '@/app/create-user-info/components/CarouselContainer';
-// import SetWeightHeight from '@/app/create-user-info/components/steps/set-weight-height';
-import { Steps } from '@/app/request-form/types/steps';
-import StepHeader from '@/app/request-form/step-header';
 import CarouselContainer from '@/app/request-form/carousel-container';
+import SearchDistance from '@/app/request-form/components/steps/search-distance';
+import { Steps } from '@/app/request-form/types/steps';
+import DistanceResult from '@/app/request-form/components/steps/DistanceResult';
+import { Carousel, CarouselApi, CarouselContent } from '@/components/ui/carousel';
+import StepHeader from '@/app/request-form/components/steps/step-header';
+import Transportation from '@/app/request-form/components/steps/Transportation';
 
 interface CarouselDispatch {
   setCarouselIndexPrev: () => void;
@@ -18,9 +17,9 @@ interface CarouselDispatch {
 export const CarouselDispatchContext = createContext<CarouselDispatch | undefined>(undefined);
 
 const STEPS = [
-  // <CreateUserNickname key={Steps.CREATE_USER_NICKNAME} />,
-  // <SetWeightHeight key={Steps.SET_WEIGHT_HEIGHT} />,
-  // <SelectUserGenderAgeRange key={Steps.SELECT_USER_GENDER_AGE_RANGE} />,
+  <SearchDistance key={Steps.SEARCH_DISTANCE} />,
+  <DistanceResult key={Steps.DISTANCE_RESULT} />,
+  <Transportation key={Steps.TRANSPORTATION} transportation="시외버스" />,
 ] as const;
 
 export default function StepContainer() {
@@ -74,7 +73,6 @@ export default function StepContainer() {
 
   return (
     <CarouselDispatchContext.Provider value={memoizedCarouselDispatch}>
-      <StepHeader />
       <Carousel
         setApi={setApi}
         opts={{
@@ -83,7 +81,8 @@ export default function StepContainer() {
         }}
         className="w-full"
       >
-        <CarouselContent className="m-0 p-0 h-[calc(100vh-50px)] w-full">
+        <StepHeader />
+        <CarouselContent className="m-0 h-dvh w-full p-0">
           {STEPS.map((step, idx) => (
             <CarouselContainer key={idx}>{step}</CarouselContainer>
           ))}
