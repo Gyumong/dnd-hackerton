@@ -1,5 +1,5 @@
 "use client"
-import AddressInput from '@/app/address-input';
+import AddressInput from '@/app/request-form/components/address-input';
 import { DndTitleFont } from '@/app/fonts';
 import useCurrentPosition from '@/shared/hooks/useCurrentPosition';
 import { useRouter } from 'next/navigation';
