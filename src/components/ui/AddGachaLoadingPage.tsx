@@ -3,6 +3,7 @@ import Image from 'next/image';
 const AddGachaLoadingPage = () => {
   return (
     <div className="relative flex flex-col items-center">
+      {/** 여기 아래 페이지를 서버에서 받는 다고 함 서울 */}
       <p className="px-[60px] pt-[80px] text-[20px] font-[700] text-[#202020]">
         감사 가챠를 등록하는 중이에요!
       </p>
