@@ -23,6 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={DndBodyFont.className}>
+    <head>
       <Script
         src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}`}
         strategy="beforeInteractive"
@@ -31,7 +32,8 @@ export default function RootLayout({
         type="text/javascript"
         src={`openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}&submodules=geocoder`}
       ></Script>
-      <body className="mx-auto h-dvh max-w-[375px] bg-black">
+    </head>
+      <body className="mx-auto h-dvh max-w-[375px]">
         <QueryClientProvider>{children}</QueryClientProvider>
       </body>
     </html>
