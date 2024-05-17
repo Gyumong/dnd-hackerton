@@ -33,6 +33,7 @@ const AddressInput = (props:any) => {
     const { address, zonecode } = data;
     setZonecode(zonecode);
     setAddress(address);
+    setIsOpen(false);
   };
 
   const closeHandler = (state:any) => {
@@ -53,31 +54,27 @@ const AddressInput = (props:any) => {
 
   return (
     <div>
-      <Drawer>
-        <DrawerTrigger>Open</DrawerTrigger>
+      <Drawer open={isOpen}>
+        <DrawerTrigger onClick={toggleHandler}>Open</DrawerTrigger>
         <DrawerContent>
           <DrawerHeader>
             <DrawerTitle>주소 찾기</DrawerTitle>
-            <DrawerDescription>아아아ㅏ.</DrawerDescription>
           </DrawerHeader>
           <div>
             <DaumPostcode
               theme={themeObj}
-              style={postCodeStyle}
+              className="w-[360px] h-[480px]"
               onComplete={completeHandler}
-              onClose={closeHandler}
+              // onClose={closeHandler}
             />
           </div>
         </DrawerContent>
       </Drawer>
       <div>
         <div>
-          <button type="button" onClick={toggleHandler}>
-            주소 찾기
-          </button>
         </div>
         <div>{address}</div>
-        <input value={detailedAddress} onChange={inputChangeHandler} />
+        {/*<input value={detailedAddress} onChange={inputChangeHandler} />*/}
       </div>
     </div>
   );
