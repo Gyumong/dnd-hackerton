@@ -1,7 +1,7 @@
+import { DndBodyFont } from '@/app/fonts';
 import { QueryClientProvider } from '@/shared/apis/queryClientProvider';
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-import { DndBodyFont } from '@/app/fonts';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={DndBodyFont.className}>
-      <body className="mx-auto h-dvh max-w-[375px] bg-black" >
+      <body className="mx-auto h-dvh max-w-[375px] bg-black">
         <QueryClientProvider>{children}</QueryClientProvider>
       </body>
     </html>
