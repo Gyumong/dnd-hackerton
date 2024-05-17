@@ -1,5 +1,4 @@
 "use client"
-import DaumPostcode from 'react-daum-postcode';
 import AddressInput from '@/app/address-input';
 
 export default function Home() {
@@ -10,7 +9,7 @@ export default function Home() {
   return (
     <main className="h-dvh bg-white">
       <AddressInput/>
-
     </main>
   );
+
 }
