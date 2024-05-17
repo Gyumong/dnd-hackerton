@@ -2,6 +2,8 @@ import Search from '/public/icons/search.svg';
 
 export default function Home() {
   return (
-   <Search />
+    <main className="h-dvh bg-white">
+      <Search />
+    </main>
   );
 }
