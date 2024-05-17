@@ -20,9 +20,9 @@ const BreadCrumb = ({ transportation }: { transportation: string }) => {
         setBgColor('#E5EBFF');
         setTextColor('#6687FC');
         break;
-      case '비행기':
-        setBgColor('#FFF4CC');
-        setTextColor('#FFC107');
+      case '시외버스':
+        setBgColor('#DFF4F2');
+        setTextColor('#54D8C7');
         break;
       default:
         setBgColor('#E5EBFF');

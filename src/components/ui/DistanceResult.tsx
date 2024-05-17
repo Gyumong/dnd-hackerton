@@ -50,7 +50,7 @@ const DistanceResult = () => {
             </strong>
           </div>
           <div className="flex justify-between pt-[6px] text-[24px] font-[700] text-[#202020]">
-            <BreadCrumb transportation="시내버스" />
+            <BreadCrumb transportation="시외버스" />
             <span className="text-[14px] font-[500] text-[#A8A8A8]">환승 2회</span>
           </div>
         </div>
