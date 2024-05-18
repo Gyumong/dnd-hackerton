@@ -10,10 +10,9 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
-import { Button } from '../../../../components/ui/button';
+import { Button } from '../../components/ui/button';
 
 const Gacha = () => {
-  const { setCarouselIndexNext } = useCarousel();
   const [showModal, setShowModal] = useState(false);
   const step = Number(useSearchParams().get('step'));
   const [기준, set기준] = useState<any>(null);
@@ -95,55 +94,7 @@ const Gacha = () => {
           />
         </div>
       </div>
-      <div className="flex justify-center pb-[26px] pt-[14px]">
-        <Button className="h-[60px] w-[343px] rounded-[10px] bg-[#6687FC] font-[700] text-[#FFF]">
-          여정 계산하기
-        </Button>
-      </div>
-      <Drawer open={showModal}>
-        <DrawerContent>
-          <div>
-            <div
-              className="flex h-full w-full max-w-[600px] flex-col items-center rounded-lg p-8"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <p className=" text-[20px] font-[700] text-white">받고 싶은 가챠를 추가해주세요</p>
-              <div className="relative h-[360px] w-[360px]">
-                <Image
-                  src="/icons/capsule-modal.svg"
-                  width={375}
-                  height={812}
-                  alt="capsule-label"
-                  className="cursor-pointer"
-                />
-                <input
-                  type="text"
-                  value={가챠}
-                  onChange={(e) => set가챠(e.target.value)}
-                  className="absolute left-1/2 top-[37.1%] h-[83px] w-[226px] -translate-x-1/2 -translate-y-1/2 transform rounded-[18px] border p-[20px] text-[27px] text-[#5EC7B9] outline-none"
-                />
-              </div>
-              <button className="absolute right-4 top-4 m-2 text-xl text-black" onClick={() => {}}>
-                <Image
-                  src="/icons/close-modal.svg"
-                  width={24}
-                  height={24}
-                  alt="close modal"
-                  className="cursor-pointer"
-                />
-              </button>
-              <div className="pt-[19px]">
-                <Button
-                  onClick={onSubmit}
-                  className="mt-4 h-[60px] w-[343px] rounded-[10px] bg-[#5EC7B9] font-[700] text-[#FFF]"
-                >
-                  가챠 추가하기
-                </Button>
-              </div>
-            </div>
-          </div>
-        </DrawerContent>
-      </Drawer>
+
       <FixedBottomWrapper>
         <Button
           className="h-[60px] w-[343px] rounded-[10px] bg-dndBlue01 px-[16px] font-[700] text-[#fff]"
