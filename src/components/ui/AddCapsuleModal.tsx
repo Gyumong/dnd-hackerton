@@ -10,11 +10,9 @@ interface PropsType {
 
 const AddCapsuleModal = (props: PropsType) => {
   const { setShowModal } = props;
-
   const handleClose = () => {
     setShowModal(false);
   };
-
   const handleAddCapsule = () => {
     setShowModal(false);
   };
@@ -25,11 +23,11 @@ const AddCapsuleModal = (props: PropsType) => {
     return () => {
       document.body.style.overflow = 'auto';
     };
-  }, []);
+  }, [setShowModal]);
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-800 bg-opacity-80"
+      className="fixed inset-0 z-50 flex w-full items-center justify-center bg-neutral-800 bg-opacity-80"
       onClick={handleClose}
     >
       <div
