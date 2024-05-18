@@ -1,8 +1,16 @@
 'use client';
 
 import Image from 'next/image';
+import { useState } from 'react';
+import SeoulResultModal from './SeoulResultModal';
 
-const AddGachaLoadingPage = () => {
+const SeoulLoadingPage = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleClick = () => {
+    setShowModal(true);
+  };
+
   return (
     <div className="relative flex flex-col items-center">
       {/** 여기 아래 페이지를 서버에서 받는 다고 함 서울 */}
@@ -24,6 +32,7 @@ const AddGachaLoadingPage = () => {
           alt="red-gif-1"
           className="absolute"
           style={{ top: '37%', left: '10%' }}
+          onClick={handleClick}
         />
         <Image
           src="/icons/green.gif"
@@ -32,6 +41,7 @@ const AddGachaLoadingPage = () => {
           alt="red-gif-2"
           className="absolute"
           style={{ top: '37%', left: '50%' }}
+          onClick={handleClick}
         />
         <Image
           src="/icons/yellow.gif"
@@ -40,10 +50,12 @@ const AddGachaLoadingPage = () => {
           alt="red-gif-3"
           className="absolute"
           style={{ top: '21%', left: '28%' }}
+          onClick={handleClick}
         />
       </div>
+      {showModal && <SeoulResultModal setShowModal={setShowModal} />}
     </div>
   );
 };
 
-export default AddGachaLoadingPage;
+export default SeoulLoadingPage;
