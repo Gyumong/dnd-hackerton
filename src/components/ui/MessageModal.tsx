@@ -9,9 +9,8 @@ interface PropsType {
 
 // Props로 받도록 수정하시면 될 것 같습니다
 
-const MessageModal = () => {
-  // const { setShowModal } = props;
-  const [showModal, setShowModal] = useState(false);
+const MessageModal = (props: any) => {
+  const { setShowModal } = props;
 
   const handleClose = () => {
     setShowModal(false);

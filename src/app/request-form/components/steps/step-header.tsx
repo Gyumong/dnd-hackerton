@@ -6,10 +6,13 @@ import { useSearchParams } from 'next/navigation';
 export default function StepHeader() {
   const step = Number(useSearchParams().get('step'));
   const WidthClassByStep = {
-    0: 'w-1/4',
-    1: 'w-2/4',
-    2: 'w-3/4',
-    3: 'w-full',
+    0: 'w-1/7',
+    1: 'w-2/7',
+    2: 'w-3/7',
+    3: 'w-4/7',
+    4: 'w-5/7',
+    5: 'w-6/7',
+    6: 'w-full',
   };
   return (
     <div className="relative h-[4px] w-full bg-[#D9D9D9]">

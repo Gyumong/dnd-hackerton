@@ -55,7 +55,7 @@ const EndAddressInput = (props: any) => {
                 value={address.lastAddress}
                 className={clsx(
                   "mt-[8px] inline-flex h-[54px] w-[343px] shrink grow basis-0 items-center justify-start gap-4 rounded-lg border p-4 font-['Pretendard'] text-base font-normal leading-snug text-neutral-800 outline-none",
-                  address ? 'bg-[#F5F7FF]' : 'bg-[#F4F4F4]',
+                  address.lastAddress ? 'bg-[#F5F7FF]' : 'bg-[#F4F4F4]',
                 )}
                 onChange={(e) =>
                   setAddress((address) => {

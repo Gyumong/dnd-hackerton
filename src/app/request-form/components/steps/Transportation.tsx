@@ -16,7 +16,7 @@ interface PropsType {
 const Transportation = () => {
   const { setCarouselIndexNext } = useCarousel();
   const step = Number(useSearchParams().get('step'));
-  const { data } = useGetResultQuery(step);
+  const { data, isLoading } = useGetResultQuery(step);
   console.log('data', data);
   const [imageUrl, setImageUrl] = useState('');
 
@@ -34,6 +34,10 @@ const Transportation = () => {
   const onClick = () => {
     setCarouselIndexNext();
   };
+
+  if (isLoading) {
+    return <></>;
+  }
   return (
     <>
       <div className="w-full bg-white">
