@@ -4,15 +4,19 @@ import { DndTitleFont } from '@/app/fonts';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { useState } from 'react';
-import TextBox from './TextBox';
-import { Button } from './button';
+import TextBox from '../../../../components/ui/TextBox';
+import { Button } from '../../../../components/ui/button';
+import FixedBottomWrapper from '@/shared/@common/fixed-bottom-wrapper';
+import useFinalGotcha from '@/app/request-form/apis/mutations/useFinalResult';
+import { useCarousel } from '@/app/request-form/hooks/useCarousel';
 
 const MessageBanner = () => {
   const [inputText, setInputText] = useState('');
   const [selectedTextBox, setSelectedTextBox] = useState<string | null>(null);
   const [isDisabled, setIsDisabled] = useState(false);
   const [isFirstSave, setIsFirstSave] = useState(false);
-
+  const { mutateAsync } = useFinalGotcha();
+  const { setCarouselIndexNext } = useCarousel();
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputText(e.target.value);
   };
@@ -35,7 +39,13 @@ const MessageBanner = () => {
   };
 
   const isButtonDisabled = !selectedTextBox && inputText.trim() === '';
-
+  const onSubmit = async () => {
+    await mutateAsync({
+      statementId: 3,
+      customStatement: null,
+    });
+    setCarouselIndexNext();
+  };
   return (
     <>
       <h1
@@ -99,16 +109,19 @@ const MessageBanner = () => {
             />
           )}
         </div>
-        <div className="flex justify-center pb-[21px]">
-          <Button
-            className={`fixed bottom-[31px] left-0 right-0 mx-auto h-[60px] w-[343px] rounded-[10px] font-[700] ${isButtonDisabled ? 'bg-[#DBDBDB] text-[#B8B8B8]' : 'bg-[#6687FC] text-white'}`}
-            style={{ margin: '0 auto' }}
-            disabled={isButtonDisabled}
-          >
-            메시지 선택 완료
-          </Button>
-        </div>
       </article>
+      <FixedBottomWrapper>
+        <Button
+          className={clsx(
+            "mx-[16px] h-14 w-[343px] rounded-lg text-center font-['Pretendard'] text-lg font-bold leading-[25.20px]",
+            true !== null ? 'bg-[#6687FC] text-white' : 'bg-[#DBDBDB] text-[#B8B8B8]',
+          )}
+          disabled={false}
+          onClick={onSubmit}
+        >
+          여정 계산하기
+        </Button>
+      </FixedBottomWrapper>
     </>
   );
 };
