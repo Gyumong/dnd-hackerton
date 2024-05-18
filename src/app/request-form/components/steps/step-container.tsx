@@ -9,6 +9,9 @@ import { Carousel, CarouselApi, CarouselContent } from '@/components/ui/carousel
 import StepHeader from '@/app/request-form/components/steps/step-header';
 import Transportation from '@/app/request-form/components/steps/Transportation';
 import Gacha from '@/app/request-form/components/steps/Gacha';
+import AddGachaLoadingPage from '@/app/request-form/components/steps/AddGachaLoadingPage';
+import MessageBanner from '@/app/request-form/components/steps/MessageBanner';
+import FinishResultPage from '@/app/request-form/components/steps/FinishResultPage';
 
 interface CarouselDispatch {
   setCarouselIndexPrev: () => void;
@@ -22,6 +25,9 @@ const STEPS = [
   <DistanceResult key={Steps.DISTANCE_RESULT} />,
   <Transportation key={Steps.TRANSPORTATION} />,
   <Gacha key={Steps.GACHA} />,
+  <AddGachaLoadingPage key={Steps.ADD_GACHA_LOADING_PAGE} />,
+  <MessageBanner key={Steps.MESSAGE_BANNER} />,
+  <FinishResultPage key={Steps.FINISH_RESULT_PAGE} />,
 ] as const;
 
 export default function StepContainer() {

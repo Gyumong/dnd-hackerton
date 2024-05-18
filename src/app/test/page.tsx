@@ -1,4 +1,4 @@
-import AddGachaLoadingPage from '@/components/ui/AddGachaLoadingPage';
+import AddGachaLoadingPage from '@/app/request-form/components/steps/AddGachaLoadingPage';
 
 const page = () => {
   return <AddGachaLoadingPage />;

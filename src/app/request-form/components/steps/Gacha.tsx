@@ -41,12 +41,13 @@ const Gacha = () => {
     const data = await mutateAsync({
       customGotcha: 가챠,
     });
+    setShowModal(false);
     if (data?.success) {
       setCarouselIndexNext();
     }
   };
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <h1
         className={clsx(
           DndTitleFont.className,
