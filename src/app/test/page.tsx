@@ -1,7 +1,7 @@
-import MessageBanner from '@/components/ui/MessageBanner';
+import AddGachaLoadingPage from '@/components/ui/AddGachaLoadingPage';
 
 const page = () => {
-  return <MessageBanner />;
+  return <AddGachaLoadingPage />;
 };
 
 export default page;
