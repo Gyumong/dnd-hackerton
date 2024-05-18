@@ -8,7 +8,7 @@ const getResult = () => {
 const useGetResultQuery = (number: any) =>
   useQuery({
     queryKey: ['getResult'],
-    queryFn: number === 2 ? () => getResult() : skipToken,
+    queryFn: number === 2 || number === 3 ? () => getResult() : skipToken,
   });
 
 export default useGetResultQuery;

@@ -8,6 +8,7 @@ import DistanceResult from '@/app/request-form/components/steps/DistanceResult';
 import { Carousel, CarouselApi, CarouselContent } from '@/components/ui/carousel';
 import StepHeader from '@/app/request-form/components/steps/step-header';
 import Transportation from '@/app/request-form/components/steps/Transportation';
+import Gacha from '@/app/request-form/components/steps/Gacha';
 
 interface CarouselDispatch {
   setCarouselIndexPrev: () => void;
@@ -19,7 +20,8 @@ export const CarouselDispatchContext = createContext<CarouselDispatch | undefine
 const STEPS = [
   <SearchDistance key={Steps.SEARCH_DISTANCE} />,
   <DistanceResult key={Steps.DISTANCE_RESULT} />,
-  <Transportation key={Steps.TRANSPORTATION} transportation="시외버스" />,
+  <Transportation key={Steps.TRANSPORTATION} />,
+  <Gacha key={Steps.GACHA} />,
 ] as const;
 
 export default function StepContainer() {

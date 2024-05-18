@@ -7,16 +7,17 @@ import useGetResultQuery from '@/app/request-form/apis/queries/useGetResult';
 import { useSearchParams } from 'next/navigation';
 import { convertMinutesToHoursAndMinutes } from '@/app/request-form/utils/convertTime';
 import FixedBottomWrapper from '@/shared/@common/fixed-bottom-wrapper';
+import { useCarousel } from '@/app/request-form/hooks/useCarousel';
 
 interface PropsType {
   transportation: '시내버스' | '지하철' | '시외버스';
 }
 
-const Transportation = (props: PropsType) => {
+const Transportation = () => {
+  const { setCarouselIndexNext } = useCarousel();
   const step = Number(useSearchParams().get('step'));
   const { data } = useGetResultQuery(step);
   console.log('data', data);
-  const { transportation } = props;
   const [imageUrl, setImageUrl] = useState('');
 
   useEffect(() => {
@@ -28,8 +29,11 @@ const Transportation = (props: PropsType) => {
           : '/icons/intercity_bus.svg';
 
     setImageUrl(iconSrc);
-  }, [transportation, data]);
+  }, [data]);
 
+  const onClick = () => {
+    setCarouselIndexNext();
+  };
   return (
     <>
       <div className="w-full bg-white">
@@ -51,7 +55,7 @@ const Transportation = (props: PropsType) => {
               src={imageUrl}
               width={214}
               height={214}
-              alt={transportation}
+              alt={data?.data?.vehicles?.[0]}
               className="pt-[12px]"
             />
           )}
@@ -77,7 +81,10 @@ const Transportation = (props: PropsType) => {
         <div className="flex justify-center pb-[23px] pt-[56px]"></div>
       </div>
       <FixedBottomWrapper>
-        <Button className="h-[60px] w-[343px] rounded-[10px] bg-dndBlue01 px-[16px] font-[700] text-[#fff]">
+        <Button
+          className="h-[60px] w-[343px] rounded-[10px] bg-dndBlue01 px-[16px] font-[700] text-[#fff]"
+          onClick={onClick}
+        >
           감사 가챠 만들기
         </Button>
       </FixedBottomWrapper>
