@@ -87,7 +87,7 @@ const MessageBanner = () => {
             alt="plus"
           />
           <input
-            className={`ml-[9.17px] w-full text-[#6687FC] outline-none ${selectedTextBox ? 'placeholder-[#A8A8A8]' : 'placeholder-[#6687FC]'}`}
+            className={`ml-[9.17px] w-full bg-white text-[#6687FC] outline-none ${selectedTextBox ? 'placeholder-[#A8A8A8]' : 'placeholder-[#6687FC]'}`}
             placeholder="메시지 직접 작성하기"
             maxLength={20}
             value={inputText}
